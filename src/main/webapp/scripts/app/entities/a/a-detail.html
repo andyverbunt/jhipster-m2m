@@ -1,0 +1,48 @@
+
+<div>
+    <h2><span translate="m2mApp.a.detail.title">A</span> {{a.id}}</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th translate="entity.detail.field">Field</th>
+                <th translate="entity.detail.value">Value</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <span translate="m2mApp.a.nameA">NameA</span>
+                </td>
+                <td>
+                    <span class="form-control-static">{{a.nameA}}</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="m2mApp.a.b">b</span>
+                </td>
+                <td>
+                    <span ng-repeat="b in a.bs">
+                        <a class="form-control-static" ui-sref="b.detail({id: {{b.id}}})">{{b.id}}</a>{{$last ? '' : ', '}}
+                    <span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span translate="m2mApp.a.user">user</span>
+                </td>
+                <td>
+                    {{a.userId}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <button type="submit"
+            onclick="window.history.back()"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span translate="entity.action.back"> Back</span>
+    </button>
+</div>

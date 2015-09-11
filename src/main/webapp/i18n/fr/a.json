@@ -1,0 +1,21 @@
+{
+    "m2mApp": {
+        "a" : {
+            "home": {
+                "title": "As",
+                "createLabel": "Créer un nouveau A",
+                "createOrEditLabel": "Créer ou éditer un A"
+            },
+            "delete": {
+                "question": "Etes-vous certain de vouloir supprimer le A {{ id }} ?"
+            },
+            "detail": {
+                "title": "A"
+            },
+            "nameA": "NameA",
+            "b": "B",
+            "user": "User"
+        }
+    }
+}
+

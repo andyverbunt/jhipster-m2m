@@ -1,0 +1,23 @@
+{
+    "m2mApp": {
+        "b" : {
+            "home": {
+                "title": "Bs",
+                "createLabel": "Create a new B",
+                "createOrEditLabel": "Create or edit a B"
+            },
+            "created": "A new B is created with identifier {{ param }}",
+            "updated": "A B is updated with identifier {{ param }}",
+            "deleted": "A B is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete B {{ id }}?"
+            },
+            "detail": {
+                "title": "B"
+            },
+            "nameB": "NameB",
+            "a": "A",
+            "user": "User"
+        }
+    }
+}

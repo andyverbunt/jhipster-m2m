@@ -1,0 +1,45 @@
+
+<form name="editForm" role="form" novalidate ng-submit="save()">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="clear()">&times;</button>
+        <h4 class="modal-title" id="myALabel" translate="m2mApp.a.home.createOrEditLabel">Create or edit a A</h4>
+    </div>
+    <div class="modal-body">
+        <jh-alert-error></jh-alert-error>
+        <div class="form-group">
+            <label for="id" translate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="a.id" readonly>
+        </div>
+
+        <div class="form-group">
+            <label translate="m2mApp.a.nameA" for="field_nameA">NameA</label>
+            <input type="text" class="form-control" name="nameA" id="field_nameA"
+                    ng-model="a.nameA"
+                    >
+
+        </div>
+        <div class="form-group">
+            <label translate="m2mApp.a.b" for="field_b">b</label>
+            <select class="form-control" id="field_b" multiple name="b" ng-model="a.bs" ng-options="b as b.id for b in bs track by b.id"></select>
+        </div>
+        <div class="form-group">
+            <label translate="m2mApp.a.user" for="field_user">user</label>
+            
+            <select class="form-control" id="field_user" name="user" ng-model="a.userId" ng-options="user.id as user.id for user in users">
+                <option value=""></option>
+            </select>
+            
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span translate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || editForm.$submitted" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span translate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

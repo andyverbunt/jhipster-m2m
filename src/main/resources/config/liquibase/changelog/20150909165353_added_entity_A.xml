@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <property name="now" value="now()" dbms="mysql,h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+    <property name="now" value="sysdate" dbms="oracle"/>
+
+    <property name="autoIncrement" value="true" dbms="mysql,h2,postgresql"/>
+    <property name="autoIncrement" value="false" dbms="oracle"/>
+
+    <property name="floatType" value="real" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle"/>
+
+    <!--
+        Added the entity A.
+    -->
+    <changeSet id="20150909165353" author="jhipster">
+        <createTable tableName="A">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}" >
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="name_a" type="varchar(255)"/>
+            <column name="user_id" type="bigint"/>
+        </createTable>
+        
+        <createTable tableName="A_B">
+            <column name="bs_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="as_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="as_id, bs_id" tableName="A_B"/>
+
+        <addForeignKeyConstraint baseColumnNames="as_id"
+                                 baseTableName="A_B"
+                                 constraintName="fk_a_b_b_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="A"/>
+
+        <addForeignKeyConstraint baseColumnNames="bs_id"
+                                 baseTableName="A_B"
+                                 constraintName="fk_b_b_a_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="B"/>
+        
+        <addForeignKeyConstraint baseColumnNames="user_id"
+                                 baseTableName="A"
+                                 constraintName="fk_a_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="JHI_USER"/>
+
+    </changeSet>
+</databaseChangeLog>
